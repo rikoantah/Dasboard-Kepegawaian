@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard Kepegawaian RSDS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  background:#f6f8fa;
+  color:#24292f;
+}
+
+/* Layout */
+.app{
+  display:flex;
+  height:100vh;
+}
+
+/* Sidebar */
+.sidebar{
+  width:260px;
+  background:#ffffff;
+  border-right:1px solid #d0d7de;
+  padding:20px;
+}
+
+.sidebar h2{
+  font-size:18px;
+  margin-bottom:30px;
+}
+
+.menu a{
+  display:block;
+  padding:10px 12px;
+  margin-bottom:6px;
+  border-radius:6px;
+  text-decoration:none;
+  color:#24292f;
+}
+
+.menu a:hover{
+  background:#eaeef2;
+}
+
+/* Main */
+.main{
+  flex:1;
+  padding:24px;
+}
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.header h1{
+  font-size:22px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+
+.card{
+  background:#ffffff;
+  border:1px solid #d0d7de;
+  border-radius:8px;
+  padding:16px;
+}
+
+.card h3{
+  margin:0 0 8px;
+  font-size:16px;
+}
+
+.card p{
+  margin:0;
+  font-size:28px;
+  font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+    <h2>RSDS Kepegawaian</h2>
+    <nav class="menu">
+      <a href="#">📊 Dashboard</a>
+      <a href="#">🗂 Cuti Pegawai</a>
+      <a href="#">💰 Gaji Berkala</a>
+      <a href="#">📄 Angka Kredit</a>
+      <a href="#">👥 Data Pegawai</a>
+      <a href="#">⚙️ Pengaturan</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="header">
+      <h1>Dashboard Kepegawaian RSDS</h1>
+      <span>👤 Admin</span>
+    </div>
+
+    <section class="cards">
+      <div class="card">
+        <h3>Pengajuan Cuti</h3>
+        <p>12</p>
+      </div>
+
+      <div class="card">
+        <h3>Gaji Berkala</h3>
+        <p>7</p>
+      </div>
+
+      <div class="card">
+        <h3>Angka Kredit</h3>
+        <p>4</p>
+      </div>
+
+      <div class="card">
+        <h3>Pegawai Aktif</h3>
+        <p>356</p>
+      </div>
+    </section>
+  </main>
+
+</div>
+
+</body>
+</html>
