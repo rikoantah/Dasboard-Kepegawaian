@@ -7,108 +7,134 @@
 
 <style>
 :root{
-  --bg:#f4f7fb;
-  --card:#ffffff;
-  --border:#d0d7de;
-  --text:#1f2328;
-  --muted:#57606a;
-  --accent:#0969da;
+  --bg1:#0f2027;
+  --bg2:#203a43;
+  --bg3:#2c5364;
+  --glass:rgba(255,255,255,.15);
+  --glass-border:rgba(255,255,255,.25);
+  --text:#ffffff;
+  --muted:#cfd8dc;
+  --accent:#4fc3f7;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI";
-  background:var(--bg);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  min-height:100vh;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
   color:var(--text);
 }
 
-/* Header */
+/* ===== HEADER ===== */
 .header{
-  padding:32px 48px;
-  background:#ffffff;
-  border-bottom:1px solid var(--border);
+  padding:40px 60px 20px;
 }
 
 .header h1{
   margin:0;
-  font-size:28px;
-  letter-spacing:0.3px;
+  font-size:34px;
+  font-weight:700;
+  letter-spacing:.5px;
 }
 
 .header p{
-  margin-top:6px;
+  margin-top:8px;
   color:var(--muted);
   font-size:15px;
 }
 
-/* Main */
+/* ===== MAIN ===== */
 .main{
-  padding:40px 48px;
+  padding:30px 60px 60px;
 }
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
-  gap:24px;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:28px;
 }
 
-/* Card */
+/* ===== CARD ===== */
+.card-link{
+  text-decoration:none;
+  color:inherit;
+}
+
 .card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:28px 24px;
-  cursor:pointer;
-  transition:all .25s ease;
   position:relative;
+  padding:32px 28px;
+  border-radius:20px;
+  background:linear-gradient(
+    145deg,
+    rgba(255,255,255,.18),
+    rgba(255,255,255,.05)
+  );
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--glass-border);
+  transition:all .35s ease;
   overflow:hidden;
 }
 
-.card::after{
+.card::before{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(135deg, transparent, rgba(9,105,218,.08));
+  background:radial-gradient(
+    circle at top left,
+    rgba(79,195,247,.35),
+    transparent 60%
+  );
   opacity:0;
-  transition:.25s;
+  transition:.35s;
 }
 
 .card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 14px 32px rgba(0,0,0,.08);
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
 }
 
-.card:hover::after{
+.card:hover::before{
   opacity:1;
 }
 
 .icon{
-  font-size:36px;
-  margin-bottom:16px;
+  font-size:42px;
+  margin-bottom:18px;
+  filter:drop-shadow(0 4px 6px rgba(0,0,0,.3));
 }
 
 .card h3{
   margin:0;
-  font-size:18px;
+  font-size:20px;
+  font-weight:600;
 }
 
 .card span{
   display:block;
-  margin-top:6px;
-  color:var(--muted);
+  margin-top:10px;
   font-size:14px;
+  color:var(--muted);
+  line-height:1.5;
 }
 
-/* Footer */
+/* ===== FOOTER ===== */
 .footer{
   text-align:center;
-  padding:18px;
-  color:var(--muted);
+  padding:20px;
   font-size:13px;
+  color:#b0bec5;
+  opacity:.85;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .header,.main{
+    padding-left:24px;
+    padding-right:24px;
+  }
 }
 </style>
 </head>
@@ -117,62 +143,64 @@ body{
 
 <header class="header">
   <h1>Dashboard Kepegawaian RSDS</h1>
-  <p>Pusat layanan kepegawaian terintegrasi — satu pintu, delapan layanan</p>
+  <p>Portal terpadu layanan kepegawaian — cepat, modern, terintegrasi</p>
 </header>
 
 <main class="main">
   <section class="grid">
 
-    <a href=" https://rikoantah.github.io/Pangkat-Dasboard/" class="card-link">
-    <div class="card">
-      <div class="icon">📈</div>
-      <h3>Pangkat</h3>
-      <span>Proses & riwayat kenaikan pangkat</span>
-    </div>
-      </a>
+    <a href="https://rikoantah.github.io/Pangkat-Dasboard/" class="card-link">
+      <div class="card">
+        <div class="icon">📈</div>
+        <h3>Pangkat</h3>
+        <span>Manajemen dan riwayat kenaikan pangkat pegawai</span>
+      </div>
+    </a>
 
     <a href="https://rikoantah.github.io/Dasboard-KGB/" class="card-link">
-  <div class="card">
-    <div class="icon">💰</div>
-    <h3>Gaji Berkala</h3>
-    <span>Pengajuan dan status KGB</span>
-  </div>
-</a>
+      <div class="card">
+        <div class="icon">💰</div>
+        <h3>Gaji Berkala</h3>
+        <span>Pengajuan, monitoring, dan arsip KGB</span>
+      </div>
+    </a>
 
     <div class="card">
       <div class="icon">🧪</div>
       <h3>UKOM</h3>
-      <span>Uji kompetensi pegawai</span>
+      <span>Uji kompetensi dan evaluasi pegawai</span>
     </div>
 
     <div class="card">
       <div class="icon">🏷️</div>
       <h3>Jabatan Fungsional</h3>
-      <span>Pengelolaan dan informasi Jafung</span>
+      <span>Informasi, pembinaan, dan data jafung</span>
     </div>
-<a href="https://rikocagat.github.io/admin-cuti-versi2/" class="card-link">
-    <div class="card">
-      <div class="icon">🏖️</div>
-      <h3>Cuti</h3>
-      <span>Pengajuan dan monitoring cuti</span>
-    </div>
+
+    <a href="https://rikocagat.github.io/admin-cuti-versi2/" class="card-link">
+      <div class="card">
+        <div class="icon">🏖️</div>
+        <h3>Cuti</h3>
+        <span>Pengajuan dan pemantauan cuti pegawai</span>
+      </div>
+    </a>
 
     <div class="card">
       <div class="icon">📊</div>
       <h3>Angka Kredit</h3>
-      <span>Upload dan verifikasi PAK</span>
+      <span>Upload dan verifikasi dokumen PAK</span>
     </div>
 
     <div class="card">
       <div class="icon">🪪</div>
       <h3>SIB / SIP</h3>
-      <span>Administrasi izin & sertifikasi</span>
+      <span>Administrasi perizinan dan sertifikasi</span>
     </div>
 
     <div class="card">
       <div class="icon">📁</div>
       <h3>SLKS</h3>
-      <span>Sistem laporan & kelengkapan SDM</span>
+      <span>Sistem laporan dan kelengkapan SDM</span>
     </div>
 
   </section>
